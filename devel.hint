@@ -1,6 +1,7 @@
-category: Graphics Publishing
-requires: libpaper1
-sdesc: "Creates printable barcodes"
+category: Libs
+requires:
+external-source: barcode
+sdesc: "Creates printable barcodes (static library)"
 ldesc: "GNU barcode is a tool to convert text strings to printed bars.
 It supports a variety of standard code to represent the strings
 and creates postscript output."

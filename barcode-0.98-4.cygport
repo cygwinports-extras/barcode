@@ -1,0 +1,17 @@
+DESCRIPTION="GNU barcode"
+HOMEPAGE="http://www.gnu.org/software/barcode/"
+SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
+
+PKG_NAMES="${PN} libbarcode-devel"
+PKG_HINTS="setup devel"
+barcode_CONTENTS="--exclude=man3 usr/bin/*.exe usr/share/"
+libbarcode_devel_CONTENTS="usr/include/ usr/lib/ usr/share/man/man3/"
+
+USE_DESTDIR=0
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygconf
+	cygmake
+}
