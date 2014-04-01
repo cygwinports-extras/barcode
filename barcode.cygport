@@ -8,11 +8,16 @@ It supports a variety of standard code to represent the strings
 and creates postscript output."
 HOMEPAGE="http://www.gnu.org/software/barcode/"
 SRC_URI="mirror://gnu/barcode/${NAME}-${VERSION}.tar.gz"
+PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/barcode.git/plain/barcode-install-info.patch
+"
 
 PKG_NAMES="${NAME} libbarcode-devel"
 barcode_CONTENTS="--exclude=man3 usr/bin/*.exe usr/share/"
 libbarcode_devel_CATEGORY="Libs"
 libbarcode_devel_CONTENTS="usr/include/ usr/lib/ usr/share/man/man3/"
+
+DIFF_EXCLUDES="doc"
 
 USE_DESTDIR=0
 
@@ -20,5 +25,5 @@ src_compile() {
 	lndirs
 	cd ${B}
 	cygconf
-	cygmake
+	cygmake -j1
 }
